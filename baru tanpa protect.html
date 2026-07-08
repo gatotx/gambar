@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Dapur Budhe - Premium Pudding & Gorengan Level VVIP No. 1 Dunia">
+    <meta name="theme-color" id="meta-theme-color" content="#f0f7f4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Dapur Budhe | VVIP Premium Culinary</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        vipgold: { 
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 
+                            300: '#fcd34d', 400: '#fbbf24', 500: '#d4af37', 
+                            600: '#b8942e', 700: '#947521', 800: '#715819', 900: '#4e3b10' 
+                        },
+                        vipgreen: { 
+                            50: '#f0f7f4', 100: '#d9eee4', 200: '#b3ddc9',
+                            500: '#10b981', 600: '#0b8259', 800: '#075036', 900: '#042d1f' 
+                        },
+                        vipblack: { 
+                            DEFAULT: '#030303', rich: '#080808', card: '#121212', elevated: '#1a1a1a' 
+                        }
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 35px rgba(212, 175, 55, 0.45)',
+                        'glow-green': '0 0 35px rgba(16, 185, 129, 0.25)',
+                        'vip-depth': '0 20px 50px rgba(0, 0, 0, 0.15)',
+                        'vip-dark-depth': '0 20px 50px rgba(0, 0, 0, 0.65)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Anti-Copy, Anti-Drag, Anti-Piracy Protection */
+        * { 
+            -webkit-tap-highlight-color: transparent; 
+            box-sizing: border-box; 
+            user-select: none; 
+            -webkit-user-drag: none;
+            outline: none !important;
+        }
+        input, textarea { user-select: auto; -webkit-user-select: auto; }
+
+        html { scroll-behavior: smooth; height: -webkit-fill-available; }
+        body { 
+            margin: 0; 
+            transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden; 
+            width: 100%; 
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        body.modal-open { overflow: hidden !important; touch-action: none; position: fixed; width: 100%; }
+        ::-webkit-scrollbar { display: none; }
+
+        /* Hardware Acceleration Optimization */
+        .accelerate {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform, opacity;
+        }
+
+        /* VIP Premium Glassmorphism */
+        .glass-premium { 
+            background: rgba(255, 255, 255, 0.75); 
+            backdrop-filter: blur(20px) saturate(190%); 
+            -webkit-backdrop-filter: blur(20px) saturate(190%);
+            border: 1px solid rgba(255, 255, 255, 0.6); 
+            box-shadow: 0 12px 40px rgba(7, 80, 54, 0.04); 
+        }
+        .dark .glass-premium { 
+            background: rgba(18, 18, 18, 0.75); 
+            backdrop-filter: blur(20px) saturate(190%); 
+            -webkit-backdrop-filter: blur(20px) saturate(190%);
+            border: 1px solid rgba(212, 175, 55, 0.2); 
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); 
+        }
+        
+        /* Zoom Effect */
+        .img-zoom-container { overflow: hidden; border-radius: 1.25rem; position: relative; }
+        .img-zoom { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+        .group:hover .img-zoom { transform: scale(1.08) rotate(0.5deg); }
+
+        /* 3D GYROSCOPIC TILT PHYSICS ENGINE */
+        .card-3d-wrap { perspective: 1200px; }
+        .card-3d {
+            transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s, box-shadow 0.3s;
+            transform-style: preserve-3d;
+            will-change: transform, background, box-shadow;
+        }
+        .card-3d:hover { box-shadow: 0 25px 45px rgba(212, 175, 55, 0.18); }
+        .dark .card-3d:hover { box-shadow: 0 25px 50px rgba(212, 175, 55, 0.12); }
+        
+        .card-3d-pop { transform: translateZ(30px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card-3d:hover .card-3d-pop { transform: translateZ(50px); }
+        
+        .card-3d-pop-deep { transform: translateZ(15px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card-3d:hover .card-3d-pop-deep { transform: translateZ(30px); }
+
+        /* Premium Toast Presisi */
+        .g-toast { 
+            position: fixed; 
+            top: -100px; 
+            left: 50%; 
+            transform: translateX(-50%) translate3d(0, 0, 0); 
+            padding: 14px 28px; 
+            border-radius: 100px; 
+            z-index: 999999; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            width: max-content; 
+            transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s; 
+            opacity: 0; 
+            pointer-events: none; 
+            will-change: top, opacity;
+        }
+        .g-toast.show { top: 24px; opacity: 1; pointer-events: auto; }
+
+        /* Drawer Transitions */
+        .drawer-overlay { 
+            opacity: 0; pointer-events: none; 
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+            will-change: opacity;
+        }
+        .drawer-overlay.active { opacity: 1; pointer-events: auto; }
+        
+        .drawer-content { 
+            transform: translateY(100%) translate3d(0, 0, 0); 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            will-change: transform;
+        }
+        .drawer-content.active { transform: translateY(0) translate3d(0, 0, 0); }
+
+        /* Premium File Upload Wrapper */
+        .file-upload-wrapper { 
+            position: relative; width: 100%; height: 160px; 
+            border: 2px dashed #d4af37; border-radius: 1.25rem; 
+            overflow: hidden; display: flex; align-items: center; 
+            justify-content: center; background: rgba(212,175,55,0.03); 
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .file-upload-wrapper:hover { background: rgba(212,175,55,0.08); border-color: #fbbf24; }
+        .file-upload-wrapper input[type="file"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 50; }
+        .file-preview { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; z-index: 20; display: none; }
+
+        /* Shimmer Effect */
+        .shimmer {
+            background: linear-gradient(90deg, rgba(212,175,55,0.05) 25%, rgba(212,175,55,0.15) 37%, rgba(212,175,55,0.05) 63%);
+            background-size: 400% 100%;
+            animation: skeleton-shimmer 1.4s ease infinite;
+        }
+        @keyframes skeleton-shimmer { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* Fireworks */
+        #celebration-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 99999; pointer-events: none; display: none; }
+    </style>
+</head>
+<body class="bg-vipgreen-50 dark:bg-vipblack-rich text-gray-800 dark:text-gray-100 relative pb-32" id="main-body">
+
+    <!-- Celebration Canvas -->
+    <canvas id="celebration-canvas"></canvas>
+
+    <!-- Global Toast -->
+    <div id="global-toast" class="g-toast bg-vipblack-rich/95 dark:bg-vipblack-elevated/95 text-white border border-vipgold-500/30 shadow-glow-gold accelerate">
+        <i id="toast-icon" class="fa-solid fa-crown text-vipgold-500 text-xl"></i>
+        <span id="toast-text" class="font-bold tracking-wide font-sans text-xs sm:text-sm">Notifikasi Berhasil</span>
+    </div>
+
+    <!-- Background Orbs -->
+    <div class="fixed top-0 left-0 w-full h-96 bg-gradient-to-b from-vipgold-500/10 dark:from-vipgold-500/5 to-transparent pointer-events-none z-0"></div>
+    <div class="fixed -top-40 -left-40 w-96 h-96 rounded-full bg-emerald-500/10 dark:bg-emerald-500/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-vipgold-500/3 dark:bg-vipgold-500/2 blur-[150px] pointer-events-none z-0"></div>
+    
+    <!-- Header -->
+    <header class="w-full pt-10 pb-6 px-4 flex flex-col items-center justify-center relative z-10 text-center">
+        <div class="relative group cursor-pointer mb-5">
+            <div class="absolute inset-0 bg-vipgold-500 rounded-full blur-[40px] opacity-25 dark:opacity-45 transition-opacity group-hover:opacity-60"></div>
+            <div class="w-28 h-28 rounded-full border-4 border-vipgold-500 shadow-vip-depth dark:shadow-vip-dark-depth relative z-10 bg-white dark:bg-vipblack flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
+                <img src="https://raw.githubusercontent.com/gatotx/gambar/refs/heads/main/IMG-20260704-WA9078.png" onerror="this.src='https://images.unsplash.com/photo-1579954115545-a95e263ab958?auto=format&fit=crop&w=300&q=80'" alt="Logo Dapur Budhe" class="w-full h-full object-cover rounded-full">
+            </div>
+        </div>
+        <p class="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mt-1 max-w-md mx-auto">Sajian Kuliner Eksklusif bercita rasa legendaris dengan pelayanan digital prioritas.</p>
+    </header>
+
+    <main class="px-4 pb-12 relative z-10 max-w-7xl mx-auto">
+        <!-- Dynamic Promo Banner -->
+        <div id="dynamic-promo-banner" class="mb-6 p-4 sm:p-5 rounded-[1.75rem] bg-gradient-to-r from-vipgold-600 to-vipgold-400 text-white shadow-glow-gold relative overflow-hidden hidden accelerate">
+            <div class="absolute -right-4 -top-4 text-vipgold-500/30 text-7xl transform rotate-12"><i class="fa-solid fa-tags"></i></div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-1.5">
+                    <i class="fa-solid fa-calendar-day text-sm"></i>
+                    <h3 class="font-black text-[11px] sm:text-xs uppercase tracking-widest" id="promo-title">Promo Hari Ini</h3>
+                </div>
+                <p class="text-xs sm:text-sm font-bold w-10/12 leading-relaxed text-vipgold-50" id="promo-desc">Memuat promo...</p>
+            </div>
+        </div>
+
+        <!-- Sticky Kategori Tabs -->
+        <div class="sticky top-4 z-30 mb-8">
+            <div class="glass-premium p-1.5 rounded-[1.75rem] shadow-lg">
+                <div class="grid grid-cols-4 gap-1.5" id="category-tabs">
+                    <button id="cat-all" class="cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-vipgreen-900 dark:bg-vipgold-600 text-white shadow-md transition-all border border-vipgreen-600 dark:border-vipgold-400" onclick="filterMenu('all')">
+                        <i class="fa-solid fa-crown text-sm mb-1 text-vipgold-300 dark:text-white"></i>
+                        <span class="font-bold text-[10px] md:text-xs tracking-wider">Semua</span>
+                    </button>
+                    <button id="cat-promo" class="cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-transparent text-vipgreen-800 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-white/10 transition-all" onclick="filterMenu('promo')">
+                        <i class="fa-solid fa-fire text-sm mb-1 text-orange-500"></i>
+                        <span class="font-bold text-[10px] md:text-xs tracking-wider">Promo</span>
+                    </button>
+                    <button id="cat-gorengan" class="cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-transparent text-vipgreen-800 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-white/10 transition-all" onclick="filterMenu('gorengan')">
+                        <i class="fa-solid fa-utensils text-sm mb-1 text-amber-700 dark:text-amber-500"></i>
+                        <span class="font-bold text-[10px] md:text-xs tracking-wider">Gorengan</span>
+                    </button>
+                    <button id="cat-pudding" class="cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-transparent text-vipgreen-800 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-white/10 transition-all" onclick="filterMenu('pudding')">
+                        <i class="fa-solid fa-ice-cream text-sm mb-1 text-pink-500"></i>
+                        <span class="font-bold text-[10px] md:text-xs tracking-wider">Pudding</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6" id="product-grid">
+            <div class="shimmer rounded-3xl h-72 w-full"></div>
+            <div class="shimmer rounded-3xl h-72 w-full"></div>
+            <div class="shimmer rounded-3xl h-72 w-full"></div>
+            <div class="shimmer rounded-3xl h-72 w-full"></div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[500px] glass-premium rounded-[2.25rem] z-40 px-3 py-2 flex justify-between items-center shadow-2xl border border-vipgold-500/30 accelerate">
+        <button onclick="scrollToTop()" class="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 text-vipgreen-900 dark:text-vipgold-400 hover:scale-105 active:scale-95 transition-transform duration-200">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[9px] font-extrabold tracking-widest uppercase">Beranda</span>
+        </button>
+        <a href="tel:6287723822146" class="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 text-blue-500 hover:scale-105 active:scale-95 transition-transform duration-200">
+            <i class="fa-solid fa-phone-volume text-lg"></i>
+            <span class="text-[9px] font-extrabold tracking-widest uppercase text-gray-800 dark:text-gray-200">Call CS</span>
+        </a>
+        <button onclick="openCart()" class="relative -top-7 w-16 h-16 rounded-full bg-gradient-to-tr from-vipgold-600 to-vipgold-400 text-white shadow-glow-gold flex flex-col items-center justify-center transform hover:-translate-y-1 active:scale-90 transition-all duration-300 border-4 border-white dark:border-vipblack-rich">
+            <i class="fa-solid fa-cart-shopping text-xl"></i>
+            <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-vipblack hidden">0</span>
+            <span class="text-[9px] font-extrabold tracking-widest uppercase">Basket</span>
+        </button>
+        <a href="https://wa.me/6287723822146" target="_blank" class="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 text-[#25D366] hover:scale-105 active:scale-95 transition-transform duration-200">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span class="text-[9px] font-extrabold tracking-widest uppercase text-gray-800 dark:text-gray-200">Chat WA</span>
+        </a>
+        <button onclick="toggleTheme()" class="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 text-gray-800 dark:text-white hover:scale-105 active:scale-95 transition-transform duration-200">
+            <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+            <span class="text-[9px] font-extrabold tracking-widest uppercase">Theme</span>
+        </button>
+    </nav>
+
+    <!-- Drawer Detail Produk -->
+    <div id="product-drawer-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] drawer-overlay" onclick="closeProductDrawer()"></div>
+    <div id="product-drawer" class="fixed bottom-0 left-0 w-full bg-white dark:bg-vipblack-rich rounded-t-[2.75rem] z-[70] drawer-content flex flex-col max-h-[92vh] shadow-2xl border-t border-vipgold-500/20">
+        <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mt-4 mb-2 cursor-pointer" onclick="closeProductDrawer()"></div>
+        <div class="overflow-y-auto pb-28 px-6 pt-2 custom-scrollbar">
+            <div class="img-zoom-container w-full h-64 mb-6 relative shadow-md">
+                <img id="detail-img" src="" alt="Detail Produk" class="w-full h-full object-cover img-zoom rounded-2xl">
+                <button onclick="toggleFavorite()" class="absolute top-4 right-4 w-10 h-10 rounded-full glass-premium flex items-center justify-center text-red-500 text-xl hover:scale-110 active:scale-90 transition-transform z-10">
+                    <i id="detail-like-icon" class="fa-regular fa-heart"></i>
+                </button>
+            </div>
+            
+            <div class="flex items-start justify-between gap-4 mb-2">
+                <h2 id="detail-name" class="text-2xl font-black font-serif text-vipgreen-900 dark:text-white">Nama Produk</h2>
+                <span id="detail-badge" class="px-3 py-1 rounded-full bg-vipgold-500/10 text-vipgold-600 dark:text-vipgold-400 border border-vipgold-500/20 text-[10px] font-black uppercase tracking-wider">Premium</span>
+            </div>
+            
+            <!-- AI Nutritional -->
+            <div class="mb-4 flex items-center gap-3 text-[10px] font-mono bg-vipgold-500/5 dark:bg-vipgold-500/10 p-2.5 rounded-xl border border-vipgold-500/20">
+                <div class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                    <i class="fa-solid fa-fire-flame-curved text-orange-500"></i> Energy: <span id="detail-ai-calories" class="font-bold text-vipgreen-900 dark:text-white">...</span>
+                </div>
+                <div class="w-1 h-3 bg-gray-300 dark:bg-zinc-700"></div>
+                <div class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                    <i class="fa-solid fa-clock text-blue-500"></i> Prep Time: <span id="detail-ai-preptime" class="font-bold text-vipgreen-900 dark:text-white">...</span>
+                </div>
+                <div class="w-1 h-3 bg-gray-300 dark:bg-zinc-700"></div>
+                <div class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                    <i class="fa-solid fa-heart-pulse text-rose-500"></i> Health Rate: <span class="font-bold text-emerald-500">98% Fit</span>
+                </div>
+            </div>
+
+            <p id="detail-desc" class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed min-h-[44px]"></p>
+            
+            <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
+                <div>
+                    <p class="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-0.5">Subtotal Harga</p>
+                    <span id="detail-price" class="text-2xl font-black text-vipgold-600 dark:text-vipgold-400">Rp 0</span>
+                </div>
+                <div class="flex items-center gap-4 bg-gray-100 dark:bg-vipblack rounded-full p-1.5 border border-gray-200 dark:border-gray-800">
+                    <button onclick="updateQty(-1)" class="w-9 h-9 rounded-full bg-white dark:bg-gray-800 shadow flex items-center justify-center text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:scale-90 transition-all"><i class="fa-solid fa-minus text-xs"></i></button>
+                    <span id="detail-qty" class="font-extrabold text-lg w-6 text-center dark:text-white">1</span>
+                    <button onclick="updateQty(1)" class="w-9 h-9 rounded-full bg-vipgold-500 text-white shadow flex items-center justify-center hover:bg-vipgold-600 active:scale-90 transition-all"><i class="fa-solid fa-plus text-xs"></i></button>
+                </div>
+            </div>
+
+            <!-- Varian Section -->
+            <div class="mb-6">
+                <h3 class="text-xs font-black uppercase tracking-widest mb-3 text-gray-800 dark:text-gray-200">Pilihan Varian Eksklusif</h3>
+                <div class="flex gap-2.5 overflow-x-auto pb-2 no-scrollbar" id="detail-variants"></div>
+            </div>
+
+            <!-- Catatan Khusus -->
+            <div class="mb-6">
+                <h3 class="text-xs font-black uppercase tracking-widest mb-3 text-gray-800 dark:text-gray-200">Catatan Khusus Koki</h3>
+                <textarea id="detail-note" class="w-full bg-gray-50 dark:bg-vipblack border border-gray-200 dark:border-gray-800 rounded-2xl p-4 text-sm focus:outline-none focus:border-vipgold-500 focus:ring-1 focus:ring-vipgold-500 dark:text-white resize-none transition-all" rows="2" placeholder="Contoh: Kurangi manis, tambahkan bumbu ekstra, dll..."></textarea>
+            </div>
+            
+            <button onclick="addToCart()" class="w-full py-4 rounded-full bg-gradient-to-r from-vipgold-600 to-vipgold-400 hover:from-vipgold-500 hover:to-vipgold-300 text-white font-extrabold tracking-widest uppercase shadow-glow-gold transition-all duration-150 flex items-center justify-center gap-2 border-b-4 border-vipgold-800 active:translate-y-[4px] active:border-b-0">
+                <i class="fa-solid fa-cart-arrow-down"></i> TAMBAH KE KERANJANG SULTAN
+            </button>
+        </div>
+    </div>
+
+    <!-- Drawer Keranjang -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[80] drawer-overlay" onclick="closeCart()"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 w-full md:w-[480px] h-full bg-white dark:bg-vipblack-rich z-[90] translate-x-full transition-transform duration-400 ease-in-out flex flex-col border-l border-vipgold-500/10 shadow-2xl">
+        <div class="px-6 py-5 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-vipblack-rich z-10">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-crown text-vipgold-500 text-lg"></i>
+                <h2 class="text-xl font-black font-serif text-vipgreen-900 dark:text-white">Proses pembayaran</h2>
+            </div>
+            <button onclick="closeCart()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform">
+                <i class="fa-solid fa-times text-gray-600 dark:text-white"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-6 animate-fade-in" id="cart-items-container">
+            <!-- Tampilan Kosong -->
+            <div id="empty-cart-msg" class="text-center py-20 text-gray-500 dark:text-gray-400">
+                <div class="w-20 h-20 rounded-full bg-vipgold-500/5 flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-basket-shopping text-4xl text-vipgold-500/40"></i>
+                </div>
+                <p class="font-extrabold text-sm text-gray-700 dark:text-gray-300">Keranjang masih kosong</p>
+                <p class="text-xs text-gray-400 mt-1">Silakan pilih produk premium untuk memulai pemesanan.</p>
+            </div>
+
+            <!-- SMART UPSELL CAROUSEL -->
+            <div id="smart-upsell-zone" class="hidden mb-6 bg-gradient-to-tr from-vipgold-500/5 to-vipgreen-500/5 dark:from-vipgold-500/10 p-4 rounded-3xl border border-vipgold-500/20">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-vipgold-500 text-xs animate-bounce"></i>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-vipgreen-900 dark:text-vipgold-400">Rekomendasi Pintar</h4>
+                </div>
+                <p class="text-[10px] text-gray-500 dark:text-gray-400 mb-3" id="upsell-text">Pilihan koki khusus untuk melengkapi hidangan Anda.</p>
+                <div id="upsell-items-list" class="flex gap-2 overflow-x-auto no-scrollbar"></div>
+            </div>
+
+            <!-- Formulir Detail Pemesanan -->
+            <div id="checkout-form" class="hidden mt-8 border-t border-gray-100 dark:border-gray-800 pt-6 pb-24">
+                <h3 class="font-serif font-black text-lg mb-4 text-vipgreen-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice-dollar text-vipgold-500"></i> Detail Pengiriman
+                </h3>
+                
+                <div class="space-y-4">
+                    <!-- Smart Coupon Field -->
+                    <div class="bg-gray-50 dark:bg-vipblack p-4 rounded-2xl border border-gray-200 dark:border-gray-800 animate-fade-in">
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-1.5">Voucher Diskon Tambahan </label>
+                        <div class="flex gap-2">
+                            <input type="text" id="coupon-code-input" class="flex-1 bg-white dark:bg-vipblack-elevated border border-gray-200 dark:border-gray-800 rounded-xl px-3.5 py-2 text-xs focus:outline-none focus:border-vipgold-500 focus:ring-1 focus:ring-vipgold-500 dark:text-white uppercase font-mono tracking-widest" placeholder="isi kolom">
+                            <button type="button" onclick="verifyVoucherCode()" class="bg-vipgold-500 hover:bg-vipgold-600 text-white font-extrabold text-[10px] tracking-wider px-4 rounded-xl transition-all shadow-md active:scale-95">APPLY</button>
+                        </div>
+                        <div id="coupon-alert" class="hidden text-[10px] font-bold mt-2 flex items-center gap-1"></div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-1.5">Nama Lengkap Penerima</label>
+                        <input type="text" id="cust-name" class="w-full bg-gray-50 dark:bg-vipblack border border-gray-200 dark:border-gray-800 rounded-xl p-3.5 text-sm focus:outline-none focus:border-vipgold-500 focus:ring-1 focus:ring-vipgold-500 dark:text-white transition-all" placeholder="Masukkan nama lengkap untuk pengiriman">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-1.5">Nomor HP / WhatsApp Aktif <span class="text-red-500">*</span></label>
+                        <input type="tel" id="cust-phone" class="w-full bg-gray-50 dark:bg-vipblack border border-gray-200 dark:border-gray-800 rounded-xl p-3.5 text-sm focus:outline-none focus:border-vipgold-500 focus:ring-1 focus:ring-vipgold-500 dark:text-white transition-all" placeholder="Contoh: 0812XXXXXXXX">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-1.5">Alamat Lengkap Pengiriman <span class="text-red-500">*</span></label>
+                        <textarea id="cust-address" oninput="calculateLocationFee()" class="w-full bg-gray-50 dark:bg-vipblack border border-gray-200 dark:border-gray-800 rounded-xl p-3.5 text-sm focus:outline-none focus:border-vipgold-500 focus:ring-1 focus:ring-vipgold-500 dark:text-white resize-none transition-all" rows="3" placeholder="Wajib sebutkan nama desa/kecamatan (contoh: Palang, Brondong, dll)..."></textarea>
+                    </div>
+
+                    <!-- AI Location Mapping Tool -->
+                    <div id="location-detection-box" class="hidden p-3 bg-blue-500/5 dark:bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center text-[11px] font-mono text-gray-600 dark:text-gray-300">
+                        <div class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-map-location-dot text-blue-500 animate-pulse"></i>
+                            <span>Area Terdeteksi: <span id="detected-area-name" class="font-bold text-blue-700 dark:text-blue-400">...</span></span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100 dark:border-gray-800 mt-2">
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-3">Metode Pembayaran Premium</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="payment-btn flex items-center justify-center p-3.5 border rounded-xl cursor-pointer transition-all border-vipgold-500 bg-vipgold-50 dark:bg-vipgold-900/20" onclick="selectPayment('cod', this)">
+                                <input type="radio" name="payment" value="cod" class="hidden" checked>
+                                <div class="flex flex-col items-center">
+                                    <i class="fa-solid fa-money-bill-wave text-xl text-green-600 dark:text-green-500 mb-1"></i>
+                                    <span class="font-extrabold text-xs mt-1 dark:text-white">Tunai (COD)</span>
+                                </div>
+                            </label>
+                            <label class="payment-btn flex items-center justify-center p-3.5 border border-gray-200 dark:border-gray-800 rounded-xl cursor-pointer transition-all" onclick="selectPayment('qris', this)">
+                                <input type="radio" name="payment" value="qris" class="hidden">
+                                <div class="flex flex-col items-center">
+                                    <i class="fa-solid fa-qrcode text-xl text-blue-500 mb-1"></i>
+                                    <span class="font-extrabold text-xs mt-1 dark:text-white">QRIS Digital</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- QRIS Zone -->
+                    <div id="qris-zone" class="hidden mt-4 p-5 border border-blue-200 dark:border-blue-900/50 bg-blue-50/30 dark:bg-blue-950/10 rounded-2xl">
+                        <div class="text-center mb-5 border-b border-blue-100 dark:border-blue-900/30 pb-5">
+                            <h4 class="font-extrabold text-sm text-blue-800 dark:text-blue-300 mb-3">Pindai Kode QRIS Resmi</h4>
+                            <img id="qris-image" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QRIS Dapur Budhe" class="w-44 h-44 mx-auto rounded-xl shadow-sm border-4 border-white dark:border-gray-800 mb-4 bg-white">
+                            <button type="button" onclick="downloadQRIS()" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-5 py-2.5 rounded-full transition-colors shadow-md flex items-center justify-center gap-2 mx-auto w-max">
+                                <i class="fa-solid fa-download"></i> Simpan Gambar QRIS
+                            </button>
+                        </div>
+
+                        <label class="block text-[10px] font-extrabold tracking-widest uppercase text-gray-600 dark:text-gray-400 mb-2">Unggah Bukti Pembayaran <span class="text-red-500">*</span></label>
+                        <div class="file-upload-wrapper" id="upload-wrapper">
+                            <input type="file" id="qris-photo" accept="image/*" onchange="previewBuktiPhoto(event)">
+                            <div class="flex flex-col items-center text-vipgold-600 dark:text-vipgold-400 z-10" id="upload-prompt">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl mb-2 animate-bounce"></i>
+                                <span class="text-xs font-bold text-center px-4">Ketuk untuk unggah dari Galeri / Kamera</span>
+                            </div>
+                            <img id="photo-preview" class="file-preview" alt="Pratinjau Bukti Transfer">
+                            <div id="edit-overlay" class="absolute top-2 right-2 bg-black/75 text-white p-2 rounded-full hidden z-20 text-[10px] shadow-md"><i class="fa-solid fa-pen"></i> Ubah Foto</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keranjang Footer Sticky -->
+        <div class="p-6 bg-white dark:bg-vipblack-rich border-t border-gray-100 dark:border-gray-800 shadow-[0_-15px_30px_rgba(0,0,0,0.03)] dark:shadow-[0_-15px_30px_rgba(0,0,0,0.4)] z-10">
+            <div class="flex flex-col gap-1.5 mb-4 text-xs font-bold text-gray-600 dark:text-gray-400">
+                <div class="flex justify-between items-center">
+                    <span>Subtotal Menu</span>
+                    <span id="cart-subtotal" class="text-gray-800 dark:text-gray-200">Rp 0</span>
+                </div>
+                <!-- Row Khusus Banner Promo Harian Dinamis -->
+                <div id="cart-daily-promo-row" class="flex justify-between items-center text-orange-500 hidden">
+                    <span id="cart-daily-promo-name">Diskon Spesial Hari Ini</span>
+                    <span id="cart-daily-promo-val">- Rp 0</span>
+                </div>
+                <!-- Row Khusus Diskon Grosir (>10 item) -->
+                <div id="cart-bulk-promo-row" class="flex justify-between items-center text-blue-500 hidden">
+                    <span>Promo Grosir (> 10 Item)</span>
+                    <span id="cart-bulk-promo-val">- Rp 0</span>
+                </div>
+                <div id="cart-savings-row" class="flex justify-between items-center text-emerald-500 hidden">
+                    <span>Kupon Promo Ekstra</span>
+                    <span id="cart-savings">- Rp 0</span>
+                </div>
+                
+                <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-800">
+                    <span>Biaya Layanan/Admin</span>
+                    <span id="cart-admin" class="text-gray-800 dark:text-gray-200">Rp 0</span>
+                </div>
+                <div class="flex justify-between items-end mt-1">
+                    <span class="text-xs font-bold text-gray-400">Total Pembayaran</span>
+                    <span id="cart-total" class="block text-2xl font-black text-vipgold-600 dark:text-vipgold-400">Rp 0</span>
+                </div>
+            </div>
+            <button onclick="processCheckout()" class="w-full py-4 rounded-full bg-vipgreen-900 dark:bg-vipgold-500 hover:bg-vipgreen-800 dark:hover:bg-vipgold-600 text-white font-extrabold tracking-widest uppercase transition-all duration-150 flex items-center justify-center gap-2 text-xs sm:text-sm border-b-4 border-vipgreen-950 dark:border-vipgold-700 active:translate-y-[4px] active:border-b-0">
+                <i class="fa-solid fa-print"></i> PROSES CETAK STRUK BUDHE
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Pratinjau Invoice Premium -->
+    <div id="invoice-modal" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] hidden flex-col items-center justify-center p-4 overflow-y-auto">
+        <h3 class="text-white text-xl sm:text-2xl font-black font-serif mb-6 text-center tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-crown text-vipgold-400 animate-pulse"></i> STRUK PEMESANAN ISTIMEWA
+        </h3>
+        
+        <!-- Wadah Struk Efek 3D Gyroscopic Tilt -->
+        <div style="perspective: 1500px;" class="w-full max-w-sm">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-glow-gold transform rotate-x-[12deg] rotate-y-[-10deg] hover:rotate-x-0 hover:rotate-y-0 transition-transform duration-700 ease-out border-4 border-vipgold-500" id="invoice-preview-container">
+                <img id="invoice-preview-img" src="" class="w-full h-auto rounded-lg" alt="Pratinjau Struk">
+            </div>
+        </div>
+
+        <div class="w-full max-w-sm mt-8 space-y-3">
+            <button id="btn-save-invoice" class="w-full bg-gradient-to-r from-vipgold-600 via-vipgold-500 to-vipgold-400 hover:opacity-95 text-white py-4 rounded-full font-extrabold shadow-glow-gold hover:scale-[1.02] active:scale-95 transition-all flex justify-center items-center gap-2 tracking-widest text-xs sm:text-sm border border-white/20">
+                <i class="fa-solid fa-download text-lg"></i> SIMPAN GAMBAR STRUK
+            </button>
+            <button id="btn-wa-invoice" class="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-4 rounded-full font-extrabold shadow-lg hover:scale-[1.02] active:scale-95 transition-all flex justify-center items-center gap-2 tracking-widest text-xs sm:text-sm">
+                <i class="fa-brands fa-whatsapp text-xl"></i> KIRIM STRUK KE WHATSAPP
+            </button>
+            <button onclick="closeInvoiceModal()" class="w-full py-2 text-gray-400 text-xs font-bold uppercase hover:text-white transition-colors mt-2 tracking-widest">
+                <i class="fa-solid fa-rotate-left mr-1"></i> Tutup & Kembali
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* =========================================================================
+           1. CORE TELEMETRY & GLOBAL VARIABLES
+           ========================================================================= */
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error(`[VVIP Shield Intercepted System Error]: ${message} at ${source}:${lineno}`);
+            return true; 
+        };
+
+        let currentAdminFee = 0;
+        
+        // DAY-BASED DYNAMIC PROMO SYSTEM
+        function getDailyPromo() {
+            const day = new Date().getDay();
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const dayName = days[day];
+            let targetType = 'all'; let discount = 0; let desc = '';
+
+            if (day === 1 || day === 2) {
+                targetType = 'pudding'; discount = 0.15;
+                desc = 'Spesial Awal Pekan! Nikmati Diskon 15% Pudding Premium (Min. Belanja Rp 100.000).';
+            } else if (day === 3 || day === 4) {
+                targetType = 'gorengan'; discount = 0.15;
+                desc = 'Renyah Tengah Pekan! Nikmati Diskon 15% Gorengan Sultan (Min. Belanja Rp 100.000).';
+            } else {
+                targetType = 'all'; discount = 0.10;
+                desc = 'Spesial Akhir Pekan! Nikmati Diskon 10% semua menu (Min. Belanja Rp 100.000).';
+            }
+            return { dayName, targetType, discount, desc };
+        }
+
+        /* =========================================================================
+           2. HIGH-FIDELITY WEB AUDIO SYNTH ENGINE
+           ========================================================================= */
+        const SoundEngine = {
+            ctx: null,
+            init() { try { if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) { } },
+            playClick() {
+                this.init(); if (!this.ctx) return;
+                try {
+                    const osc = this.ctx.createOscillator(); const gain = this.ctx.createGain();
+                    osc.type = 'triangle'; osc.frequency.setValueAtTime(1400, this.ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(450, this.ctx.currentTime + 0.05);
+                    gain.gain.setValueAtTime(0.06, this.ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.05);
+                } catch(e){}
+            },
+            playSuccess() {
+                this.init(); if (!this.ctx) return;
+                try {
+                    const t = this.ctx.currentTime;
+                    const playNote = (freq, start, duration, vol = 0.1) => {
+                        const osc = this.ctx.createOscillator(); const gain = this.ctx.createGain();
+                        osc.type = 'sine'; osc.frequency.setValueAtTime(freq, start);
+                        gain.gain.setValueAtTime(vol, start); gain.gain.exponentialRampToValueAtTime(0.01, start + duration);
+                        osc.connect(gain); gain.connect(this.ctx.destination);
+                        osc.start(start); osc.stop(start + duration);
+                    };
+                    playNote(523.25, t, 0.12); playNote(659.25, t + 0.08, 0.12);  
+                    playNote(783.99, t + 0.16, 0.12); playNote(1046.50, t + 0.24, 0.3);  
+                } catch(e){}
+            },
+            playRemove() {
+                this.init(); if (!this.ctx) return;
+                try {
+                    const osc = this.ctx.createOscillator(); const gain = this.ctx.createGain();
+                    osc.type = 'sawtooth'; osc.frequency.setValueAtTime(400, this.ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(80, this.ctx.currentTime + 0.15);
+                    gain.gain.setValueAtTime(0.08, this.ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.15);
+                } catch(e){}
+            },
+            playAIType() {
+                this.init(); if (!this.ctx) return;
+                try {
+                    const osc = this.ctx.createOscillator(); const gain = this.ctx.createGain();
+                    osc.type = 'sine'; osc.frequency.setValueAtTime(1200 + Math.random() * 400, this.ctx.currentTime);
+                    gain.gain.setValueAtTime(0.02, this.ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.02);
+                    osc.connect(gain); gain.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.02);
+                } catch(e){}
+            }
+        };
+
+        const triggerSound = (type = 'click') => {
+            try {
+                if (type === 'click') SoundEngine.playClick();
+                if (type === 'success') SoundEngine.playSuccess();
+                if (type === 'remove') SoundEngine.playRemove();
+                if (type === 'type') SoundEngine.playAIType();
+            } catch (e) { }
+        };
+
+        /* =========================================================================
+           3. EXCLUSIVE VVIP PRODUCT DATABASE & STATE
+           ========================================================================= */
+        const products = [
+            { id: 1, name: 'Sultan Regal Pudding', type: 'pudding', price: 65000, img: 'https://images.unsplash.com/photo-1579954115545-a95e263ab958?auto=format&fit=crop&w=600&q=80', desc: 'Pudding lapis biskuit Marie Regal premium dengan vla vanilla bourbon Madagaskar eksklusif.', promo: true, variants: ['Reguler', 'Ekstra Vla', 'Paket Hampers'], calories: '320 Kcal', preptime: '15 Mins' },
+            { id: 2, name: 'Gorengan Truffle Bakwan', type: 'gorengan', price: 45000, img: 'https://images.unsplash.com/photo-1601314167180-5753065a7fcd?auto=format&fit=crop&w=600&q=80', desc: 'Bakwan sayur organik krispi dengan semprotan minyak truffle putih Italia yang harum.', promo: false, variants: ['Original', 'Saus Keju Truffle', 'Pedas Mampus'], calories: '280 Kcal', preptime: '10 Mins' },
+            { id: 3, name: 'Pudding Coklat Belgia', type: 'pudding', price: 85000, img: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80', desc: 'Dibuat dari 70% Dark Chocolate Belgia berkualitas tertinggi menghasilkan cita rasa istimewa.', promo: true, variants: ['Dark 70%', 'Milk Choco', 'Hazelnut Mix'], calories: '410 Kcal', preptime: '20 Mins' },
+            { id: 4, name: 'Tahu Isi Wagyu A5', type: 'gorengan', price: 120000, img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80', desc: 'Tahu sutra lembut diisi dengan cincangan daging sapi Wagyu kelas A5 premium.', promo: false, variants: ['Isi 3 Pcs', 'Isi 5 Pcs (+80k)'], calories: '550 Kcal', preptime: '12 Mins' }
+        ];
+
+        let cart = [];
+        let currentProduct = null; let selectedVariant = ''; let qtyCounter = 1;
+        let paymentMethod = 'cod'; let typingTimeout;
+        let generatedInvoiceUrl = ''; let generatedWaUrl = '';
+        
+        let favorites = [];
+        try { favorites = JSON.parse(localStorage.getItem('dapurBudhe_favs')) || []; } catch(e) {}
+        let appliedVoucher = null; 
+
+        const DOM = {
+            productGrid: null, cartBadge: null, emptyCartMsg: null,
+            checkoutForm: null, cartItemsContainer: null, cartTotal: null,
+            searchInput: null, productCountBadge: null
+        };
+
+        function showToast(text, iconClass) {
+            const toast = document.getElementById('global-toast');
+            const toastText = document.getElementById('toast-text');
+            const toastIcon = document.getElementById('toast-icon');
+            
+            if(!toast) return;
+            toastText.innerText = text;
+            toastIcon.className = `text-vipgold-500 text-xl ${iconClass}`;
+            if(!iconClass.includes('fa-')) toastIcon.classList.add('fa-solid'); 
+            
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 3000);
+        }
+
+        function initDynamicPromoBanner() {
+            const promo = getDailyPromo();
+            const banner = document.getElementById('dynamic-promo-banner');
+            if (banner) {
+                document.getElementById('promo-title').innerText = `PROMO HARI ${promo.dayName.toUpperCase()}`;
+                document.getElementById('promo-desc').innerText = promo.desc;
+                banner.classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                DOM.productGrid = document.getElementById('product-grid');
+                DOM.cartBadge = document.getElementById('cart-badge');
+                DOM.emptyCartMsg = document.getElementById('empty-cart-msg');
+                DOM.checkoutForm = document.getElementById('checkout-form');
+                DOM.cartItemsContainer = document.getElementById('cart-items-container');
+                DOM.cartTotal = document.getElementById('cart-total');
+                DOM.searchInput = document.getElementById('search-input');
+                DOM.productCountBadge = document.getElementById('product-count-badge');
+
+                initDynamicPromoBanner();
+                renderProducts('all');
+                initTheme();
+                restoreSavedDetails();
+
+                // Events for Modals
+                const btnSave = document.getElementById('btn-save-invoice');
+                if(btnSave) {
+                    btnSave.addEventListener('click', () => {
+                        triggerSound('click');
+                        const link = document.createElement('a');
+                        link.download = `Invoice_DapurBudhe_VVIP_${Date.now()}.jpg`;
+                        link.href = generatedInvoiceUrl;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        showToast('Struk Tersimpan di Galeri!', 'fa-download');
+                    });
+                }
+
+                const btnWa = document.getElementById('btn-wa-invoice');
+                if(btnWa) {
+                    btnWa.addEventListener('click', () => {
+                        triggerSound('success');
+                        window.open(generatedWaUrl, '_blank');
+                    });
+                }
+            } catch(err) { }
+        });
+
+        /* =========================================================================
+           4. GYROSCOPIC TILT PHYSICS ENGINE 
+           ========================================================================= */
+        let active3dTimeout;
+        function init3DEffect() {
+            try {
+                const cards = document.querySelectorAll('.card-3d');
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        cancelAnimationFrame(active3dTimeout);
+                        active3dTimeout = requestAnimationFrame(() => {
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left; const y = e.clientY - rect.top;  
+                            const angleX = (rect.height / 2 - y) / 6; const angleY = (x - rect.width / 2) / 6; 
+                            card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-8px) scale(1.03)`;
+                            
+                            if (document.documentElement.classList.contains('dark')) {
+                                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(212,175,55,0.18) 0%, rgba(18,18,18,0) 80%), rgba(18, 18, 18, 0.75)`;
+                            } else {
+                                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 80%), rgba(255, 255, 255, 0.75)`;
+                            }
+                        });
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        cancelAnimationFrame(active3dTimeout);
+                        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+                        card.style.background = '';
+                    });
+                });
+            } catch(e) { }
+        }
+
+        /* =========================================================================
+           5. PRODUCT RENDERING, SEARCH, & FILTER
+           ========================================================================= */
+        function renderProducts(filter, searchQuery = '') {
+            try {
+                if (!DOM.productGrid) return;
+                DOM.productGrid.innerHTML = '';
+                
+                let filtered = products;
+                if (filter === 'promo') filtered = products.filter(p => p.promo);
+                else if (filter !== 'all') filtered = products.filter(p => p.type === filter);
+
+                if (searchQuery.trim() !== '') filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.desc.toLowerCase().includes(searchQuery.toLowerCase()));
+                if (DOM.productCountBadge) DOM.productCountBadge.innerText = `${filtered.length} Menu Tersedia`;
+
+                if (filtered.length === 0) {
+                    DOM.productGrid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400 dark:text-zinc-600"><i class="fa-solid fa-utensils text-5xl mb-4 text-gray-300 dark:text-zinc-700"></i><p class="font-extrabold text-sm">Sajian Tidak Ditemukan</p></div>`;
+                    return;
+                }
+
+                filtered.forEach(p => {
+                    const isFavorite = favorites.includes(p.id);
+                    const safeName = p.name.replace(/'/g, "\\'"); const safeDesc = p.desc.replace(/'/g, "\\'");
+
+                    const cardWrap = document.createElement('div'); cardWrap.className = 'card-3d-wrap accelerate';
+                    cardWrap.innerHTML = `
+                        <div class="card-3d glass-premium rounded-3xl p-3 flex flex-col group cursor-pointer relative h-full">
+                            <div class="img-zoom-container w-full h-44 md:h-48 mb-3 relative card-3d-pop" onclick="openProduct(${p.id})">
+                                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover img-zoom" onerror="this.src='https://placehold.co/600x480/d4af37/ffffff?text=${encodeURIComponent(p.name)}'">
+                                ${p.promo ? `<div class="absolute top-2 left-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest z-10 shadow-md">Promo</div>` : ''}
+                                <button onclick="toggleCardFavorite(${p.id}, event)" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 dark:bg-black/60 text-red-500 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform z-10">
+                                    <i class="${isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="flex-1 flex flex-col justify-between card-3d-pop-deep">
+                                <div>
+                                    <h3 class="font-bold text-sm md:text-base text-gray-800 dark:text-gray-100 line-clamp-1">${p.name}</h3>
+                                    <p class="text-vipgold-600 dark:text-vipgold-400 font-extrabold text-xs md:text-sm mt-1">Rp ${p.price.toLocaleString('id-ID')}</p>
+                                </div>
+                                <div class="mt-4 flex items-center justify-between border-t border-gray-100 dark:border-gray-800 pt-3 gap-2">
+                                    <button onclick="openProduct(${p.id})" class="flex-1 bg-vipgreen-800 hover:bg-vipgreen-700 dark:bg-vipgold-500 dark:hover:bg-vipgold-400 text-white text-[10px] font-black px-4 py-2.5 rounded-full transition-all duration-150 text-center tracking-widest flex items-center justify-center gap-1.5 shadow-md border-b-4 border-vipgreen-950 dark:border-vipgold-700 active:translate-y-[4px] active:border-b-0">
+                                        <i class="fa-solid fa-cart-shopping"></i> ORDER
+                                    </button>
+                                    <button onclick="shareProduct('${safeName}', '${safeDesc}', event)" class="w-8.5 h-8.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center hover:bg-vipgold-500 hover:text-white active:scale-90 transition-colors shadow-sm flex-shrink-0">
+                                        <i class="fa-solid fa-share-nodes text-[11px]"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    DOM.productGrid.appendChild(cardWrap);
+                });
+                init3DEffect();
+            } catch(err) { }
+        }
+
+        function filterMenu(type) {
+            triggerSound('click');
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-transparent text-vipgreen-800 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-white/10 transition-all";
+                const icon = btn.querySelector('i');
+                if(icon && icon.classList.contains('fa-crown')) icon.className = 'fa-solid fa-crown text-sm mb-1 text-vipgold-400';
+            });
+            const activeBtn = document.getElementById(`cat-${type}`);
+            if (activeBtn) {
+                activeBtn.className = "cat-btn flex flex-col items-center justify-center py-3 rounded-2xl bg-vipgreen-900 dark:bg-vipgold-600 text-white shadow-md transition-all border border-vipgreen-600 dark:border-vipgold-400";
+                const icon = activeBtn.querySelector('i');
+                if(icon && icon.classList.contains('fa-crown')) icon.className = 'fa-solid fa-crown text-sm mb-1 text-white';
+            }
+            renderProducts(type, DOM.searchInput ? DOM.searchInput.value : '');
+        }
+
+        function shareProduct(name, desc, event) {
+            if(event) event.stopPropagation(); triggerSound('click');
+            const shareUrl = window.location.href.split('#')[0];
+            const shareText = `*${name}* dari Dapur Budhe - Cita Rasa Mewah!\n\n${desc}\n\nPesan di: ${shareUrl}`;
+            if (navigator.share) navigator.share({ title: `Dapur Budhe - ${name}`, text: shareText, url: shareUrl }).catch(() => {});
+            else {
+                try {
+                    const el = document.createElement('textarea'); el.value = shareText; document.body.appendChild(el); el.select();
+                    document.execCommand('copy'); document.body.removeChild(el); showToast('Teks & Link disalin ke Clipboard!', 'fa-copy');
+                } catch(err) { showToast('Gagal menyalin link.', 'fa-exclamation-circle'); }
+            }
+        }
+
+        /* =========================================================================
+           6. PRODUCT DRAWERS & DETAILED STATE CONTROLLER
+           ========================================================================= */
+        function openProduct(id) {
+            triggerSound('click');
+            currentProduct = products.find(p => p.id === id);
+            if (!currentProduct) return;
+            qtyCounter = 1; selectedVariant = currentProduct.variants[0];
+
+            document.getElementById('detail-img').src = currentProduct.img;
+            document.getElementById('detail-name').innerText = currentProduct.name;
+            document.getElementById('detail-price').innerText = `Rp ${currentProduct.price.toLocaleString('id-ID')}`;
+            document.getElementById('detail-qty').innerText = qtyCounter;
+            document.getElementById('detail-note').value = '';
+            document.getElementById('detail-badge').innerText = currentProduct.promo ? 'PROMO SPESIAL' : 'PREMIUM VVIP';
+
+            document.getElementById('detail-ai-calories').innerText = currentProduct.calories;
+            document.getElementById('detail-ai-preptime').innerText = currentProduct.preptime;
+
+            const isFav = favorites.includes(currentProduct.id);
+            document.getElementById('detail-like-icon').className = isFav ? 'fa-solid fa-heart' : 'fa-regular fa-heart';
+
+            const descEl = document.getElementById('detail-desc');
+            descEl.innerHTML = ''; clearTimeout(typingTimeout);
+            let idx = 0; const text = currentProduct.desc;
+            function typeWriter() {
+                if (idx < text.length) {
+                    descEl.innerHTML += text.charAt(idx); idx++; triggerSound('type');
+                    typingTimeout = setTimeout(typeWriter, 12);
+                }
+            }
+            typeWriter();
+
+            const varContainer = document.getElementById('detail-variants');
+            varContainer.innerHTML = '';
+            currentProduct.variants.forEach(v => {
+                const btn = document.createElement('button');
+                btn.className = `px-4 py-2.5 rounded-full border text-xs font-bold whitespace-nowrap transition-all ${v === selectedVariant ? 'bg-vipgold-500 text-white border-vipgold-500 shadow-md' : 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800'}`;
+                btn.innerText = v; btn.onclick = () => selectVariant(v, btn);
+                varContainer.appendChild(btn);
+            });
+
+            document.getElementById('product-drawer-overlay').classList.add('active');
+            document.getElementById('product-drawer').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeProductDrawer() {
+            document.getElementById('product-drawer-overlay').classList.remove('active');
+            document.getElementById('product-drawer').classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        function selectVariant(v, btnEl) {
+            triggerSound('click'); selectedVariant = v;
+            const btns = document.getElementById('detail-variants').children;
+            for(let btn of btns) btn.className = 'px-4 py-2.5 rounded-full border text-xs font-bold whitespace-nowrap transition-all bg-transparent text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-800';
+            btnEl.className = 'px-4 py-2.5 rounded-full border text-xs font-bold whitespace-nowrap transition-all bg-vipgold-500 text-white border-vipgold-500 shadow-md';
+        }
+
+        function updateQty(change) {
+            triggerSound('click');
+            qtyCounter += change; if (qtyCounter < 1) qtyCounter = 1;
+            document.getElementById('detail-qty').innerText = qtyCounter;
+            document.getElementById('detail-price').innerText = `Rp ${(currentProduct.price * qtyCounter).toLocaleString('id-ID')}`;
+        }
+
+        function toggleFavorite() {
+            triggerSound('click'); if (!currentProduct) return;
+            const index = favorites.indexOf(currentProduct.id);
+            if (index > -1) {
+                favorites.splice(index, 1);
+                document.getElementById('detail-like-icon').className = 'fa-regular fa-heart'; showToast('Dihapus dari Favorit', 'fa-heart');
+            } else {
+                favorites.push(currentProduct.id);
+                document.getElementById('detail-like-icon').className = 'fa-solid fa-heart'; showToast('Ditambahkan ke Favorit!', 'fa-heart');
+            }
+            try { localStorage.setItem('dapurBudhe_favs', JSON.stringify(favorites)); } catch(e){}
+            syncGlobalCatalog();
+        }
+
+        function toggleCardFavorite(productId, event) {
+            event.stopPropagation(); triggerSound('click');
+            const index = favorites.indexOf(productId);
+            if (index > -1) { favorites.splice(index, 1); showToast('Dihapus dari Favorit', 'fa-heart'); } 
+            else { favorites.push(productId); showToast('Ditambahkan ke Favorit!', 'fa-heart'); }
+            try { localStorage.setItem('dapurBudhe_favs', JSON.stringify(favorites)); } catch(e){}
+            syncGlobalCatalog();
+        }
+
+        function syncGlobalCatalog() {
+            const activeCatBtn = document.querySelector('.cat-btn.text-white');
+            const catType = activeCatBtn ? activeCatBtn.id.replace('cat-', '') : 'all';
+            renderProducts(catType, DOM.searchInput ? DOM.searchInput.value : '');
+        }
+
+        function addToCart() {
+            if (!currentProduct) return;
+            triggerSound('success');
+            cart.push({ ...currentProduct, cartId: Date.now(), qty: qtyCounter, variant: selectedVariant, note: document.getElementById('detail-note').value });
+            updateCartUI(); closeProductDrawer();
+            showToast('Sajian VVIP Berhasil Masuk Keranjang!', 'fa-cart-plus');
+        }
+
+        /* =========================================================================
+           7. SMART UPSELL RECOMMENDATION & COUPON ENGINES
+           ========================================================================= */
+        function checkAndTriggerUpsell() {
+            try {
+                const upsellZone = document.getElementById('smart-upsell-zone');
+                const upsellList = document.getElementById('upsell-items-list');
+                if (!upsellZone || !upsellList) return;
+
+                if (cart.length === 0) { upsellZone.classList.add('hidden'); return; }
+
+                const categoriesInCart = cart.map(item => item.type);
+                const hasGorengan = categoriesInCart.includes('gorengan'); const hasPudding = categoriesInCart.includes('pudding');
+
+                let recommendationItems = []; let pitchText = "";
+                if (hasGorengan && !hasPudding) {
+                    recommendationItems = products.filter(p => p.type === 'pudding'); pitchText = "Lengkapi gorengan renyah Anda dengan manisnya Royal Pudding premium!";
+                } else if (hasPudding && !hasGorengan) {
+                    recommendationItems = products.filter(p => p.type === 'gorengan'); pitchText = "Seimbangkan rasa manis dengan gurihnya Gorengan Sultan Wagyu & Truffle!";
+                } else {
+                    const cartIds = cart.map(item => item.id);
+                    recommendationItems = products.filter(p => !cartIds.includes(p.id)); pitchText = "Kombinasi luar biasa! Tambah menu eksklusif ini agar jamuan makin lengkap:";
+                }
+
+                if (recommendationItems.length > 0) {
+                    upsellList.innerHTML = '';
+                    const uText = document.getElementById('upsell-text');
+                    if (uText) uText.innerText = pitchText;
+
+                    recommendationItems.forEach(item => {
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'bg-white dark:bg-vipblack-elevated p-2.5 rounded-2xl flex items-center gap-3.5 flex-shrink-0 w-64 border border-vipgold-500/10 shadow-sm';
+                        itemEl.innerHTML = `
+                            <img src="${item.img}" class="w-12 h-12 rounded-xl object-cover" onerror="this.src='https://placehold.co/100x100/d4af37/ffffff?text=${encodeURIComponent(item.name)}'">
+                            <div class="flex-1 min-w-0">
+                                <h5 class="text-xs font-bold text-gray-800 dark:text-white truncate">${item.name}</h5>
+                                <p class="text-[10px] text-vipgold-600 dark:text-vipgold-400 font-extrabold">Rp ${item.price.toLocaleString('id-ID')}</p>
+                            </div>
+                            <button onclick="addUpsellItem(${item.id})" class="bg-vipgold-500 text-white p-1.5 rounded-xl hover:bg-vipgold-600 transition-colors text-xs flex items-center justify-center"><i class="fa-solid fa-plus"></i></button>
+                        `;
+                        upsellList.appendChild(itemEl);
+                    });
+                    upsellZone.classList.remove('hidden');
+                } else { upsellZone.classList.add('hidden'); }
+            } catch(e) { }
+        }
+
+        function addUpsellItem(id) {
+            triggerSound('success'); const item = products.find(p => p.id === id);
+            if (!item) return;
+            cart.push({ ...item, cartId: Date.now(), qty: 1, variant: item.variants[0], note: 'Rekomendasi Pintar' });
+            updateCartUI(); showToast('Pasangan Sajian Pintar Ditambahkan!', 'fa-magic');
+        }
+
+        function verifyVoucherCode() {
+            try {
+                const input = document.getElementById('coupon-code-input').value.trim().toUpperCase();
+                const alertBox = document.getElementById('coupon-alert');
+                if (!alertBox) return;
+                
+                if (input === 'F1_CEPAT' || input === 'VVIP_SULTAN') {
+                    appliedVoucher = { code: input, discountPercent: 15 };
+                    alertBox.className = "text-[10px] font-bold mt-2 text-emerald-500 flex items-center gap-1";
+                    alertBox.innerHTML = `<i class="fa-solid fa-circle-check"></i> Kode ${input} Berhasil! Diskon Tambahan 15% diterapkan.`;
+                    alertBox.classList.remove('hidden');
+                    triggerSound('success'); startVoucherCelebration(); updateCartUI();
+                } else {
+                    appliedVoucher = null;
+                    alertBox.className = "text-[10px] font-bold mt-2 text-red-500 flex items-center gap-1";
+                    alertBox.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Kode Voucher Tidak Berlaku.`;
+                    alertBox.classList.remove('hidden');
+                    triggerSound('remove'); updateCartUI();
+                }
+            } catch(e){}
+        }
+
+        function startVoucherCelebration() {
+            try {
+                const canvas = document.getElementById('celebration-canvas');
+                if (!canvas) return; const ctx = canvas.getContext('2d');
+                canvas.style.display = 'block'; canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+                let particles = []; const colors = ['#d4af37', '#10b981', '#3b82f6', '#f59e0b', '#ec4899'];
+
+                class Particle {
+                    constructor() {
+                        this.x = canvas.width / 2; this.y = canvas.height / 2;
+                        this.vx = (Math.random() - 0.5) * 15; this.vy = (Math.random() - 0.5) * 15;
+                        this.radius = Math.random() * 4 + 2; this.color = colors[Math.floor(Math.random() * colors.length)];
+                        this.alpha = 1; this.gravity = 0.15;
+                    }
+                    draw() {
+                        ctx.save(); ctx.globalAlpha = this.alpha; ctx.fillStyle = this.color; ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+                    }
+                    update() { this.x += this.vx; this.y += this.vy; this.vy += this.gravity; this.alpha -= 0.02; }
+                }
+
+                for (let i = 0; i < 120; i++) particles.push(new Particle());
+                let animationFrameId;
+                function animateCelebration() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach((p, index) => {
+                        if (p.alpha <= 0) particles.splice(index, 1);
+                        else { p.update(); p.draw(); }
+                    });
+                    if (particles.length > 0) animationFrameId = requestAnimationFrame(animateCelebration);
+                    else { canvas.style.display = 'none'; cancelAnimationFrame(animationFrameId); }
+                }
+                animateCelebration();
+            } catch(e){}
+        }
+
+        /* =========================================================================
+           8. LOCATION DETECTION CALCULATOR
+           ========================================================================= */
+        function calculateLocationFee() {
+            try {
+                const address = document.getElementById('cust-address').value.trim().toLowerCase();
+                const detectionBox = document.getElementById('location-detection-box');
+                const areaNameEl = document.getElementById('detected-area-name');
+                if (!detectionBox) return;
+
+                if (address.length < 4) {
+                    detectionBox.classList.add('hidden'); currentAdminFee = 0;
+                    updateCartUI(); return;
+                }
+
+                const area3000 = ['sedayulawas', 'sedayu lawas', 'wedung', 'pambon', 'jompong', 'brondong', 'blimbing'];
+                const area5000 = ['cakaran', 'palang', 'rembes', 'tuban', 'paciran', 'kranji', 'drajat'];
+
+                let detectedArea = ""; currentAdminFee = 0; 
+
+                for (let area of area5000) { if (address.includes(area)) { currentAdminFee = 5000; detectedArea = area.toUpperCase(); break; } }
+                if (currentAdminFee === 0) {
+                    for (let area of area3000) { if (address.includes(area)) { currentAdminFee = 3000; detectedArea = area.toUpperCase(); break; } }
+                }
+
+                if (currentAdminFee > 0) {
+                    areaNameEl.innerText = detectedArea; detectionBox.classList.remove('hidden');
+                } else { detectionBox.classList.add('hidden'); }
+                updateCartUI();
+            } catch(e){}
+        }
+
+        /* =========================================================================
+           9. UPDATING CART & SUMMARY LOGIC
+           ========================================================================= */
+        function updateCartUI() {
+            try {
+                if (!DOM.cartBadge || !DOM.emptyCartMsg || !DOM.checkoutForm || !DOM.cartItemsContainer) return;
+
+                if (cart.length > 0) {
+                    DOM.cartBadge.innerText = cart.length; DOM.cartBadge.classList.remove('hidden');
+                    DOM.emptyCartMsg.classList.add('hidden'); DOM.checkoutForm.classList.remove('hidden');
+                } else {
+                    DOM.cartBadge.classList.add('hidden'); DOM.emptyCartMsg.classList.remove('hidden');
+                    DOM.checkoutForm.classList.add('hidden');
+                }
+
+                Array.from(DOM.cartItemsContainer.children).forEach(child => {
+                    if(child.id !== 'empty-cart-msg' && child.id !== 'checkout-form' && child.id !== 'smart-upsell-zone') child.remove();
+                });
+
+                let subtotal = 0; 
+                let totalQty = 0;
+                
+                // Kalkulasi Subtotal dan Kuantitas
+                cart.forEach(item => {
+                    subtotal += item.price * item.qty;
+                    totalQty += item.qty;
+                });
+
+                const promoObj = getDailyPromo(); 
+                let dailyDiscountAmount = 0;
+                let bulkDiscountAmount = 0;
+
+                // Logika Promo Hari Ini (Min. 100.000)
+                if (subtotal >= 100000) {
+                    cart.forEach(item => {
+                        if (promoObj.targetType === 'all' || item.type === promoObj.targetType) {
+                            dailyDiscountAmount += (item.price * item.qty) * promoObj.discount;
+                        }
+                    });
+                }
+
+                // Logika Promo Grosir (> 10 Porsi)
+                if (totalQty > 10) {
+                    bulkDiscountAmount = subtotal * 0.10;
+                }
+
+                // Render Elemen HTML untuk setiap item
+                cart.forEach(item => {
+                    const itemTotalCost = item.price * item.qty;
+                    const el = document.createElement('div');
+                    el.className = 'flex gap-3.5 mb-4 bg-gray-50 dark:bg-vipblack p-4 rounded-2xl border border-gray-100 dark:border-gray-800 accelerate animate-fade-in';
+                    el.innerHTML = `
+                        <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover shadow-sm" onerror="this.src='https://placehold.co/150x150/d4af37/ffffff?text=${encodeURIComponent(item.name)}'">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-sm text-gray-800 dark:text-white truncate">${item.name}</h4>
+                            <p class="text-[10px] text-gray-400 font-bold tracking-wider mt-0.5">${item.variant} • ${item.qty} Porsi</p>
+                            <p class="font-extrabold text-sm text-vipgreen-900 dark:text-vipgold-400 mt-1">Rp ${itemTotalCost.toLocaleString('id-ID')}</p>
+                            ${item.note ? `<p class="text-[11px] text-orange-500 italic mt-1 line-clamp-1"><i class="fa-solid fa-sticky-note"></i> ${item.note}</p>` : ''}
+                        </div>
+                        <button onclick="removeFromCart(${item.cartId})" class="text-red-500 hover:scale-110 active:scale-95 transition-transform p-1.5 flex items-center justify-center align-middle h-max self-center"><i class="fa-solid fa-trash-can text-base"></i></button>
+                    `;
+                    DOM.cartItemsContainer.insertBefore(el, DOM.checkoutForm);
+                });
+
+                let finalTotal = subtotal;
+                const cartSubtotalEl = document.getElementById('cart-subtotal');
+                if(cartSubtotalEl) cartSubtotalEl.innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+
+                // Update UI Promo Hari Ini
+                const dailyPromoRow = document.getElementById('cart-daily-promo-row');
+                const dailyPromoVal = document.getElementById('cart-daily-promo-val');
+                const dailyPromoName = document.getElementById('cart-daily-promo-name');
+                if (dailyDiscountAmount > 0) {
+                    if(dailyPromoName) dailyPromoName.innerText = `Diskon Hari ${promoObj.dayName} (Min 100k)`;
+                    if(dailyPromoVal) dailyPromoVal.innerText = `- Rp ${dailyDiscountAmount.toLocaleString('id-ID')}`;
+                    if(dailyPromoRow) dailyPromoRow.classList.remove('hidden');
+                    finalTotal -= dailyDiscountAmount;
+                } else { if(dailyPromoRow) dailyPromoRow.classList.add('hidden'); }
+
+                // Update UI Promo Grosir
+                const bulkPromoRow = document.getElementById('cart-bulk-promo-row');
+                const bulkPromoVal = document.getElementById('cart-bulk-promo-val');
+                if (bulkDiscountAmount > 0) {
+                    if (bulkPromoVal) bulkPromoVal.innerText = `- Rp ${bulkDiscountAmount.toLocaleString('id-ID')}`;
+                    if (bulkPromoRow) bulkPromoRow.classList.remove('hidden');
+                    finalTotal -= bulkDiscountAmount;
+                } else { if(bulkPromoRow) bulkPromoRow.classList.add('hidden'); }
+
+                // Update UI Voucher Manual
+                const savingsRow = document.getElementById('cart-savings-row');
+                const cartSavingsEl = document.getElementById('cart-savings');
+                let discountAmount = 0;
+                if (appliedVoucher) {
+                    discountAmount = subtotal * (appliedVoucher.discountPercent / 100);
+                    finalTotal -= discountAmount;
+                    if (cartSavingsEl) cartSavingsEl.innerText = `- Rp ${discountAmount.toLocaleString('id-ID')}`;
+                    if (savingsRow) savingsRow.classList.remove('hidden');
+                } else { if (savingsRow) savingsRow.classList.add('hidden'); }
+                
+                const activeAdminFee = cart.length > 0 ? currentAdminFee : 0;
+                const cartAdminEl = document.getElementById('cart-admin');
+                if(cartAdminEl) cartAdminEl.innerText = `Rp ${activeAdminFee.toLocaleString('id-ID')}`;
+                finalTotal += activeAdminFee;
+
+                finalTotal = Math.max(0, finalTotal);
+                if (DOM.cartTotal) DOM.cartTotal.innerText = `Rp ${finalTotal.toLocaleString('id-ID')}`;
+                
+                checkAndTriggerUpsell();
+            } catch(err) { }
+        }
+
+        function removeFromCart(cartId) {
+            triggerSound('remove'); cart = cart.filter(c => c.cartId !== cartId); updateCartUI(); 
+        }
+
+        function openCart() {
+            triggerSound('click'); document.getElementById('cart-drawer-overlay').classList.add('active');
+            document.getElementById('cart-drawer').classList.remove('translate-x-full'); document.body.classList.add('modal-open');
+        }
+        function closeCart() {
+            document.getElementById('cart-drawer-overlay').classList.remove('active');
+            document.getElementById('cart-drawer').classList.add('translate-x-full'); document.body.classList.remove('modal-open');
+        }
+
+        function selectPayment(method, element) {
+            triggerSound('click'); paymentMethod = method;
+            document.querySelectorAll('.payment-btn').forEach(btn => {
+                btn.className = 'payment-btn flex items-center justify-center p-3.5 border border-gray-200 dark:border-gray-800 rounded-xl cursor-pointer transition-all';
+            });
+            element.className = 'payment-btn flex items-center justify-center p-3.5 border border-vipgold-500 bg-vipgold-50 dark:bg-vipgold-900/20 rounded-xl cursor-pointer transition-all shadow-sm';
+            document.getElementById('qris-zone').classList.toggle('hidden', method !== 'qris');
+        }
+
+        function downloadQRIS() {
+            triggerSound('click');
+            try {
+                const qrisImg = document.getElementById('qris-image'); if (!qrisImg) return;
+                fetch(qrisImg.src).then(res => res.blob()).then(blob => {
+                    const url = window.URL.createObjectURL(blob); const link = document.createElement('a'); 
+                    link.href = url; link.download = 'QRIS_DapurBudhe_Official.png';
+                    document.body.appendChild(link); link.click(); 
+                    document.body.removeChild(link); window.URL.revokeObjectURL(url);
+                    showToast('Kode QRIS Berhasil Diunduh!', 'fa-check-circle');
+                }).catch(() => { window.open(qrisImg.src, '_blank'); });
+            } catch(e) {}
+        }
+
+        function previewBuktiPhoto(event) {
+            triggerSound('success');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('photo-preview');
+                    if (preview) { preview.src = e.target.result; preview.style.display = 'block'; }
+                    const prompt = document.getElementById('upload-prompt');
+                    if (prompt) prompt.classList.add('hidden');
+                    const overlay = document.getElementById('edit-overlay');
+                    if (overlay) overlay.classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveDetailsToLocal() {
+            try {
+                localStorage.setItem('dapurBudhe_custName', document.getElementById('cust-name').value);
+                localStorage.setItem('dapurBudhe_custPhone', document.getElementById('cust-phone').value);
+                localStorage.setItem('dapurBudhe_custAddress', document.getElementById('cust-address').value);
+            } catch(e){}
+        }
+
+        function restoreSavedDetails() {
+            try {
+                if(localStorage.getItem('dapurBudhe_custName')) document.getElementById('cust-name').value = localStorage.getItem('dapurBudhe_custName');
+                if(localStorage.getItem('dapurBudhe_custPhone')) document.getElementById('cust-phone').value = localStorage.getItem('dapurBudhe_custPhone');
+                if(localStorage.getItem('dapurBudhe_custAddress')) {
+                    document.getElementById('cust-address').value = localStorage.getItem('dapurBudhe_custAddress');
+                    calculateLocationFee();
+                }
+            } catch(e){}
+        }
+
+        function initTheme() {
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-sun';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            triggerSound('click');
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                document.getElementById('theme-icon').className = 'fa-solid fa-moon';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-sun';
+            }
+        }
+
+        function scrollToTop() {
+            triggerSound('click');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeInvoiceModal() {
+            triggerSound('click');
+            const modal = document.getElementById('invoice-modal');
+            if (modal) {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        /* =========================================================================
+           11. ULTRA-PREMIUM HIGH-DPI CANVAS STRUK GENERATOR
+           ========================================================================= */
+        function preloadProductImages(items) {
+            return Promise.all(items.map(item => {
+                return new Promise((resolve) => {
+                    const img = new Image(); img.crossOrigin = 'anonymous'; 
+                    img.onload = () => resolve({ id: item.id, imgElement: img, success: true });
+                    img.onerror = () => resolve({ id: item.id, imgElement: null, success: false });
+                    img.src = item.img;
+                });
+            }));
+        }
+
+        async function processCheckout() {
+            try {
+                if(cart.length === 0) return showToast('Keranjang Belanja Masih Kosong!', 'fa-exclamation-triangle');
+                
+                const nama = document.getElementById('cust-name').value.trim() || 'Hamba Allah';
+                const hp = document.getElementById('cust-phone').value.trim();
+                const alamat = document.getElementById('cust-address').value.trim();
+                
+                // VALIDASI KETAT ALAMAT & LOKASI
+                if(!hp) return showToast('Nomor HP / WhatsApp Wajib Diisi!', 'fa-exclamation-circle');
+                if(!alamat) return showToast('Alamat Pengiriman Wajib Diisi!', 'fa-exclamation-circle');
+                if(currentAdminFee === 0) return showToast('Area tidak terdeteksi! Tulis detail desa/kecamatan dengan benar.', 'fa-map-location-dot');
+
+                let proofImg = null;
+                if (paymentMethod === 'qris') {
+                    const fileInput = document.getElementById('qris-photo');
+                    if (!fileInput.files || fileInput.files.length === 0) return showToast('Wajib Unggah Bukti Transfer QRIS!', 'fa-exclamation-circle');
+                    proofImg = document.getElementById('photo-preview');
+                }
+
+                saveDetailsToLocal();
+                showToast('Merancang Invoice High-DPI VVIP...', 'fa-spinner fa-spin');
+
+                const loadedImagesList = await preloadProductImages(cart);
+                const imageMap = {};
+                loadedImagesList.forEach(res => { if (res.success) imageMap[res.id] = res.imgElement; });
+                
+                function getLines(ctx, text, maxWidth) {
+                    const words = text.split(" "); let lines = []; let currentLine = words[0] || "";
+                    for (let i = 1; i < words.length; i++) {
+                        let word = words[i]; let width = ctx.measureText(currentLine + " " + word).width;
+                        if (width < maxWidth) currentLine += " " + word;
+                        else { lines.push(currentLine); currentLine = word; }
+                    }
+                    if(currentLine) lines.push(currentLine); 
+                    return lines.length > 0 ? lines : ["-"];
+                }
+
+                function drawRoundedImage(ctx, img, x, y, width, height, radius) {
+                    ctx.save(); ctx.beginPath(); ctx.moveTo(x + radius, y); ctx.lineTo(x + width - radius, y);
+                    ctx.quadraticCurveTo(x + width, y, x + width, y + radius); ctx.lineTo(x + width, y + height - radius);
+                    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height); ctx.lineTo(x + radius, y + height);
+                    ctx.quadraticCurveTo(x, y + height, x, y + height - radius); ctx.lineTo(x, y + radius);
+                    ctx.quadraticCurveTo(x, y, x + radius, y); ctx.closePath(); ctx.clip();
+                    ctx.drawImage(img, x, y, width, height); ctx.restore();
+                }
+
+                function drawPlaceholderBox(ctx, label, x, y, width, height, radius) {
+                    ctx.save(); ctx.fillStyle = '#075036'; ctx.beginPath(); ctx.moveTo(x + radius, y);
+                    ctx.lineTo(x + width - radius, y); ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+                    ctx.lineTo(x + width, y + height - radius); ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                    ctx.lineTo(x + radius, y + height); ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+                    ctx.lineTo(x, y + radius); ctx.quadraticCurveTo(x, y, x + radius, y); ctx.closePath(); ctx.fill();
+                    ctx.fillStyle = '#d4af37'; ctx.font = 'bold 12px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                    ctx.fillText(label.substring(0, 2).toUpperCase(), x + width/2, y + height/2); ctx.restore();
+                }
+
+                const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 640; 
+                const alamatLines = getLines(ctx, alamat, 420);
+                
+                let itemsHeight = 0; 
+                let subtotalVal = 0; 
+                let totalQty = 0;
+
+                // Hitung subtotal dan kuantitas terlebih dahulu
+                cart.forEach(item => {
+                    subtotalVal += item.price * item.qty;
+                    totalQty += item.qty;
+                });
+
+                let dailyDiscountAmount = 0; 
+                let bulkDiscountAmount = 0;
+                const promoObj = getDailyPromo();
+
+                if (subtotalVal >= 100000) {
+                    cart.forEach(item => {
+                        if (promoObj.targetType === 'all' || item.type === promoObj.targetType) {
+                            dailyDiscountAmount += (item.price * item.qty) * promoObj.discount;
+                        }
+                    });
+                }
+                
+                if (totalQty > 10) {
+                    bulkDiscountAmount = subtotalVal * 0.10;
+                }
+
+                cart.forEach(item => {
+                    itemsHeight += 70; 
+                    if (item.note) { const noteLines = getLines(ctx, `Catatan: ${item.note}`, 420); itemsHeight += (noteLines.length * 18); }
+                });
+
+                let proofDrawWidth = 0; let proofDrawHeight = 0;
+                if (proofImg && proofImg.src) {
+                    const maxProofW = 440; const maxProofH = 320;
+                    const ratio = Math.min(maxProofW / proofImg.naturalWidth, maxProofH / proofImg.naturalHeight);
+                    proofDrawWidth = proofImg.naturalWidth * ratio; proofDrawHeight = proofImg.naturalHeight * ratio;
+                }
+
+                const voucherLineCount = appliedVoucher ? 1 : 0;
+                const dailyPromoLineCount = dailyDiscountAmount > 0 ? 1 : 0;
+                const bulkPromoLineCount = bulkDiscountAmount > 0 ? 1 : 0;
+
+                const headerH = 170; 
+                const customerH = 150 + (alamatLines.length * 20); 
+                const tableHeaderH = 50; 
+                const summaryBoxHeight = 90 + (voucherLineCount * 22) + (dailyPromoLineCount * 22) + (bulkPromoLineCount * 22);
+                const totalH = summaryBoxHeight + 50; 
+                const paymentInfoH = paymentMethod === 'qris' ? (160 + proofDrawHeight) : 100; 
+                const footerH = 140;
+
+                canvas.height = headerH + customerH + tableHeaderH + itemsHeight + totalH + paymentInfoH + footerH;
+                
+                ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#075036'; ctx.fillRect(0, 0, canvas.width, 130); 
+                ctx.fillStyle = '#d4af37'; ctx.fillRect(0, 130, canvas.width, 6);
+                
+                ctx.fillStyle = '#d4af37'; ctx.font = 'bold 38px "Playfair Display", serif, Arial'; ctx.textAlign = 'center'; ctx.fillText('DAPUR BUDHE', canvas.width / 2, 55);
+                ctx.font = 'italic 15px Arial'; ctx.fillStyle = '#d9eee4'; ctx.fillText('Sajian Premium bercita rasa legendaris', canvas.width / 2, 80);
+                ctx.font = 'bold 16px Arial'; ctx.fillStyle = '#ffffff'; ctx.fillText('STRUK DIGITAL SYSTEM BUDHE', canvas.width / 2, 110);
+
+                let curY = 160; const invNo = 'DB-VVIP-' + Math.floor(100000 + Math.random() * 900000);
+                
+                ctx.fillStyle = '#f8fafc'; ctx.fillRect(30, curY, canvas.width - 60, customerH - 20);
+                ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1.5; ctx.strokeRect(30, curY, canvas.width - 60, customerH - 20);
+
+                curY += 30; ctx.textAlign = 'left'; ctx.fillStyle = '#075036'; ctx.font = 'bold 16px Arial'; ctx.fillText('INFORMASI PELANGGAN PRIORITAS', 50, curY);
+                ctx.font = '14px Arial'; ctx.fillStyle = '#475569';
+                curY += 30; ctx.fillText('No. Invoice', 50, curY); ctx.fillText(`: ${invNo}`, 180, curY);
+                curY += 24; ctx.fillText('Waktu Transaksi', 50, curY); ctx.fillText(`: ${new Date().toLocaleString('id-ID')}`, 180, curY);
+                curY += 24; ctx.fillText('Nama Penerima', 50, curY); ctx.fillText(`: ${nama}`, 180, curY);
+                curY += 24; ctx.fillText('WhatsApp Aktif', 50, curY); ctx.fillText(`: ${hp}`, 180, curY);
+                curY += 24; ctx.fillText('Alamat Pengiriman', 50, curY); ctx.fillText(':', 180, curY);
+                alamatLines.forEach((line) => { ctx.fillText(line, 195, curY); curY += 20; });
+
+                curY += 30; ctx.fillStyle = '#075036'; ctx.fillRect(30, curY, canvas.width - 60, 40);
+                ctx.fillStyle = '#ffffff'; ctx.font = 'bold 13px Arial'; ctx.textAlign = 'left'; ctx.fillText('DESKRIPSI MENU', 50, curY + 25);
+                ctx.textAlign = 'center'; ctx.fillText('QTY', 400, curY + 25); ctx.textAlign = 'right'; ctx.fillText('HARGA', 490, curY + 25); ctx.fillText('TOTAL', 590, curY + 25);
+
+                curY += 65; 
+                
+                cart.forEach((item) => {
+                    const sub = item.price * item.qty;
+                    const productImgEl = imageMap[item.id];
+                    if (productImgEl) drawRoundedImage(ctx, productImgEl, 45, curY - 15, 52, 52, 10);
+                    else drawPlaceholderBox(ctx, item.name, 45, curY - 15, 52, 52, 10);
+
+                    ctx.fillStyle = '#0f172a'; ctx.font = 'bold 15px Arial'; ctx.textAlign = 'left'; ctx.fillText(`${item.name}`, 115, curY + 5);
+                    ctx.font = '12px Arial'; ctx.fillStyle = '#64748b'; ctx.fillText(`Pilihan: ${item.variant}`, 115, curY + 23);
+                    
+                    ctx.fillStyle = '#0f172a'; ctx.textAlign = 'center'; ctx.font = '14px Arial'; ctx.fillText(`${item.qty}`, 400, curY + 13);
+                    ctx.textAlign = 'right'; ctx.fillText(`${item.price.toLocaleString('id-ID')}`, 490, curY + 13);
+                    ctx.font = 'bold 14px Arial'; ctx.fillText(`${sub.toLocaleString('id-ID')}`, 590, curY + 13);
+                    
+                    curY += 32;
+                    if (item.note) {
+                        ctx.font = 'italic 12px Arial'; ctx.fillStyle = '#b45309'; ctx.textAlign = 'left';
+                        const noteLines = getLines(ctx, `Catatan khusus: "${item.note}"`, 420);
+                        noteLines.forEach(line => { ctx.fillText(line, 115, curY); curY += 18; });
+                    }
+                    curY += 20; ctx.strokeStyle = '#f1f5f9'; ctx.beginPath(); ctx.moveTo(30, curY); ctx.lineTo(610, curY); ctx.stroke(); curY += 25;
+                });
+                
+                curY += 5; 
+                ctx.fillStyle = '#f8fafc'; ctx.fillRect(330, curY, 280, summaryBoxHeight);
+                ctx.textAlign = 'right'; 
+                
+                let detailY = curY + 25;
+                ctx.fillStyle = '#475569'; ctx.font = '13px Arial'; ctx.fillText('Subtotal pesanan:', 470, detailY); 
+                ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px Arial'; ctx.fillText(`Rp ${subtotalVal.toLocaleString('id-ID')}`, 590, detailY);
+                
+                if (dailyDiscountAmount > 0) {
+                    detailY += 22;
+                    ctx.fillStyle = '#475569'; ctx.font = '13px Arial'; ctx.fillText(`Diskon Hari ${promoObj.dayName}:`, 470, detailY);
+                    ctx.fillStyle = '#f59e0b'; ctx.font = 'bold 13px Arial'; ctx.fillText(`- Rp ${dailyDiscountAmount.toLocaleString('id-ID')}`, 590, detailY);
+                }
+
+                if (bulkDiscountAmount > 0) {
+                    detailY += 22;
+                    ctx.fillStyle = '#475569'; ctx.font = '13px Arial'; ctx.fillText(`Promo Grosir (> 10 Item):`, 470, detailY);
+                    ctx.fillStyle = '#3b82f6'; ctx.font = 'bold 13px Arial'; ctx.fillText(`- Rp ${bulkDiscountAmount.toLocaleString('id-ID')}`, 590, detailY);
+                }
+
+                let discountAmount = 0;
+                if (appliedVoucher) {
+                    detailY += 22;
+                    discountAmount = subtotalVal * (appliedVoucher.discountPercent / 100);
+                    ctx.fillStyle = '#475569'; ctx.font = '13px Arial'; ctx.fillText(`Diskon Voucher (${appliedVoucher.code}):`, 470, detailY);
+                    ctx.fillStyle = '#059669'; ctx.font = 'bold 13px Arial'; ctx.fillText(`- Rp ${discountAmount.toLocaleString('id-ID')}`, 590, detailY);
+                }
+
+                detailY += 22;
+                ctx.fillStyle = '#475569'; ctx.font = '13px Arial'; ctx.fillText('Biaya Admin:', 470, detailY);
+                ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px Arial'; ctx.fillText(`Rp ${currentAdminFee.toLocaleString('id-ID')}`, 590, detailY);
+
+                const totalToPay = Math.max(0, subtotalVal - discountAmount - dailyDiscountAmount - bulkDiscountAmount + currentAdminFee);
+                
+                detailY += 35;
+                ctx.fillStyle = '#d4af37'; ctx.font = 'bold 18px Arial'; ctx.fillText(`Rp ${totalToPay.toLocaleString('id-ID')}`, 590, detailY);
+                ctx.fillStyle = '#075036'; ctx.font = 'bold 15px Arial'; ctx.fillText('TOTAL TRANSFER:', 470, detailY);
+
+                curY += (summaryBoxHeight + 20); ctx.textAlign = 'center';
+                if (paymentMethod === 'cod') {
+                    ctx.fillStyle = '#ecfdf5'; ctx.fillRect(100, curY, 440, 60); ctx.strokeStyle = '#10b981'; ctx.lineWidth = 2; ctx.strokeRect(100, curY, 440, 60);
+                    ctx.fillStyle = '#047857'; ctx.font = 'bold 16px Arial'; ctx.fillText('BAYAR DI TEMPAT (COD - CASH ON DELIVERY)', canvas.width / 2, curY + 36);
+                    curY += 80;
+                } else {
+                    ctx.fillStyle = '#eff6ff'; ctx.fillRect(100, curY, 440, 60); ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2; ctx.strokeRect(100, curY, 440, 60);
+                    ctx.fillStyle = '#1d4ed8'; ctx.font = 'bold 16px Arial'; ctx.fillText('SUDAH TRANSFER (METODE QRIS DIGITAL)', canvas.width / 2, curY + 36);
+                    if (proofImg && proofDrawWidth > 0) {
+                        curY += 80; ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px Arial'; ctx.fillText('LAMPIRAN RESMI BUKTI TRANSFER:', canvas.width / 2, curY); curY += 20;
+                        const imgX = (canvas.width - proofDrawWidth) / 2;
+                        ctx.drawImage(proofImg, imgX, curY, proofDrawWidth, proofDrawHeight);
+                        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 3; ctx.strokeRect(imgX, curY, proofDrawWidth, proofDrawHeight);
+                        curY += proofDrawHeight + 35;
+                    }
+                }
+
+                ctx.textAlign = 'center'; ctx.fillStyle = '#64748b'; ctx.font = 'italic 12px Arial';
+                ctx.fillText('Terima kasih banyak atas pesanan istimewa Anda di Dapur Budhe.', canvas.width / 2, curY);
+                ctx.fillText('Struk digital ini diakui secara sah oleh sistem manajemen operasional kami.', canvas.width / 2, curY + 18);
+
+                curY += 45; ctx.fillStyle = '#0f172a'; let barX = 220;
+                for(let i = 0; i < 50; i++) {
+                    let barW = Math.random() > 0.5 ? 2.5 : 4.5; let gap = Math.random() > 0.5 ? 2 : 4;
+                    if (barX > 420) break; ctx.fillRect(barX, curY, barW, 35); barX += barW + gap;
+                }
+
+                generatedInvoiceUrl = canvas.toDataURL('image/jpeg', 0.95); 
+                
+                // Construct WA Message DYNAMIC
+                let msg = `*PESANAN PRIORITAS DAPUR BUDHE (VVIP)*%0A%0A`;
+                msg += `🧾 *Invoice:* ${invNo}%0A👤 *Penerima:* ${nama}%0A📱 *WhatsApp:* ${hp}%0A📍 *Alamat:* ${alamat}%0A💳 *Metode:* *${paymentMethod === 'cod' ? 'CASH ON DELIVERY (COD)' : 'QRIS DIGITAL'}*%0A%0A*RINCIAN KULINER:*%0A`;
+                cart.forEach((c, idx) => {
+                    msg += `${idx+1}. ${c.name} (${c.variant})%0A   ${c.qty} Porsi x Rp ${c.price.toLocaleString('id-ID')} = Rp ${(c.price*c.qty).toLocaleString('id-ID')}%0A`;
+                    if(c.note) msg += `   📝 _Catatan: ${c.note}_%0A`;
+                });
+                
+                msg += `%0A*RINGKASAN BIAYA:*%0A`;
+                msg += `Subtotal Menu: Rp ${subtotalVal.toLocaleString('id-ID')}%0A`;
+                if(dailyDiscountAmount > 0) {
+                    msg += `Diskon Hari ${promoObj.dayName}: - Rp ${dailyDiscountAmount.toLocaleString('id-ID')}%0A`;
+                }
+                if(bulkDiscountAmount > 0) {
+                    msg += `Promo Grosir (> 10 Item): - Rp ${bulkDiscountAmount.toLocaleString('id-ID')}%0A`;
+                }
+                if(appliedVoucher) {
+                    const vocAmount = subtotalVal * (appliedVoucher.discountPercent / 100);
+                    msg += `Diskon Voucher (${appliedVoucher.code}): - Rp ${vocAmount.toLocaleString('id-ID')}%0A`;
+                }
+                msg += `Biaya Admin (Lokasi): Rp ${currentAdminFee.toLocaleString('id-ID')}%0A`;
+                msg += `*TOTAL PEMBAYARAN: Rp ${totalToPay.toLocaleString('id-ID')}*%0A%0A`;
+                
+                if(paymentMethod === 'qris') msg += `_*(Bukti transfer akan dilampirkan oleh pelanggan)*_%0A%0A`;
+                msg += `Terima kasih atas pesanannya! 🙏`;
+
+                generatedWaUrl = `https://wa.me/6287723822146?text=${msg}`;
+
+                // Tampilkan Modal
+                const previewImg = document.getElementById('invoice-preview-img');
+                if (previewImg) previewImg.src = generatedInvoiceUrl;
+                
+                const modal = document.getElementById('invoice-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                }
+                
+                triggerSound('success');
+                showToast('Struk VVIP Berhasil Dibuat!', 'fa-check');
+
+            } catch(e) { 
+                console.error(e);
+                showToast('Terjadi kesalahan sistem.', 'fa-exclamation-triangle');
+            }
+        }
+    </script>
+</body>
+</html>
